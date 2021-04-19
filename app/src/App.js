@@ -5,6 +5,7 @@ import Slider from '@material-ui/core/Slider';
 import VolumeDown from '@material-ui/icons/VolumeDown';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +35,9 @@ function App() {
   return (
     <div className={classes.root}>
       <Paper elevation={5} className={classes.paper}>
+      <Typography id="discrete-slider" gutterBottom>
+        Микшер громкости
+      </Typography>
         <Grid container spacing={2}>
           <Grid item>
             <VolumeDown />
