@@ -90,6 +90,7 @@ function App() {
   return (
     <div className={classes.root}>
       <Paper elevation={5} className={classes.paper}>
+        <h1>Твои действия</h1>
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps = {};
