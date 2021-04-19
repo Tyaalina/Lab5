@@ -6,6 +6,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -113,36 +114,46 @@ function App() {
               <Typography className={classes.instructions}>
                 All steps completed - you&apos;re finished
             </Typography>
-              <Button onClick={handleReset} className={classes.button}>
-                Reset
-            </Button>
+              <Tooltip title="Повторим?">
+                <Button onClick={handleReset} className={classes.button}>
+                  Reset
+                </Button>
+              </Tooltip>
+
             </div>
           ) : (
             <div>
               <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
               <div>
-                <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-                  Back
-              </Button>
+                <Tooltip title="Назад">
+                  <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+                    Back
+                  </Button>
+                </Tooltip>
                 {isStepOptional(activeStep) && (
+                  <Tooltip title="Пропускай">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleSkip}
+                      className={classes.button}
+                    >
+                      Skip
+                    </Button>
+                  </Tooltip>
+
+                )}
+                <Tooltip title="Жми скорее">
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleSkip}
+                    onClick={handleNext}
                     className={classes.button}
                   >
-                    Skip
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                   </Button>
-                )}
+                </Tooltip>
 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleNext}
-                  className={classes.button}
-                >
-                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                </Button>
               </div>
             </div>
           )}
