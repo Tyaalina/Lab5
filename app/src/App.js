@@ -35,6 +35,7 @@ function App() {
   return (
     <div className={classes.root}>
       <Paper elevation={5} className={classes.paper}>
+        <h2>ЭТО ЛАБА 5</h2>
       <Typography id="discrete-slider" gutterBottom>
         Микшер громкости
       </Typography>
