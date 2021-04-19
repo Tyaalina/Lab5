@@ -1,5 +1,10 @@
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import Slider from '@material-ui/core/Slider';
+import VolumeDown from '@material-ui/icons/VolumeDown';
+import VolumeUp from '@material-ui/icons/VolumeUp';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%'
   },
   paper: {
-    width: 'max-content',
+    width: '150px',
     height: 'max-content',
     margin: 'auto',
     padding: theme.spacing(4)
@@ -20,9 +25,26 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const [value, setValue] = React.useState(30);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div className={classes.root}>
       <Paper elevation={5} className={classes.paper}>
+        <Grid container spacing={2}>
+          <Grid item>
+            <VolumeDown />
+          </Grid>
+          <Grid item xs>
+            <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+          </Grid>
+          <Grid item>
+            <VolumeUp />
+          </Grid>
+        </Grid>
       </Paper>
     </div>
   );
