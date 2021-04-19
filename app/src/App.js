@@ -33,6 +33,10 @@ function App() {
     setValue(newValue);
   };
 
+  const handleClickMixer = () => {
+    alert('Зачем нажал?')
+  }
+
   return (
     <div className={classes.root}>
       <Paper elevation={5} className={classes.paper}>
@@ -50,7 +54,7 @@ function App() {
             <VolumeUp />
           </Grid>
         </Grid>
-        <Button variant="contained" color="secondary" fullWidth="true">
+        <Button variant="contained" color="secondary" fullWidth="true" onClick={handleClickMixer}>
         Не жми
       </Button>
       </Paper>
