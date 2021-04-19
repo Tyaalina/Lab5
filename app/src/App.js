@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+function valuetext(value) {
+  return `${value}Гц`;
+}
+
 function App() {
   const classes = useStyles();
   const [value, setValue] = React.useState(30);
@@ -39,7 +43,14 @@ function App() {
             <VolumeDown />
           </Grid>
           <Grid item xs>
-            <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+            <Slider defaultValue={30}
+              getAriaValueText={valuetext}
+              aria-labelledby="discrete-slider"
+              valueLabelDisplay="auto"
+              step={10}
+              marks
+              min={10}
+              max={30} />
           </Grid>
           <Grid item>
             <VolumeUp />
