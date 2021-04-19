@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     margin: 'auto'
-  }
+  },
 }));
 
 function App() {
@@ -25,9 +27,17 @@ function App() {
 
   return (
     <div className={classes.root}>
-      <Paper elevation={5} className={classes.paper}>
-      <TextField id="standard-basic" label="Name" />
-      </Paper>
+      <Grid container>
+        <Paper elevation={5} className={classes.paper}>
+            <TextField id="standard-basic" label="Name" />
+
+            <Button variant="contained" color="primary">
+              Я кнопка
+            </Button>
+
+        </Paper>
+      </Grid>
+
     </div>
   );
 }
