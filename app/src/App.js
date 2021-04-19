@@ -6,6 +6,7 @@ import VolumeDown from '@material-ui/icons/VolumeDown';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +50,9 @@ function App() {
             <VolumeUp />
           </Grid>
         </Grid>
+        <Button variant="contained" color="secondary" fullWidth="true">
+        Не жми
+      </Button>
       </Paper>
     </div>
   );
